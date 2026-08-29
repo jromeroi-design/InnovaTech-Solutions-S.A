@@ -12,6 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_868E31B3396B454A4836E581FBF52A92F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1B6A41FEBDF14D08BA2D6C93142B43AF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5C8D93B6D5184D9CBAFF6E7966D067E7 }}
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
